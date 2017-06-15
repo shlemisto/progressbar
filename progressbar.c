@@ -22,7 +22,7 @@ struct progressbar *progressbar_new(char *title, int max, const char *(*fill)())
 	strncpy(bar->title, title, len);
 	
 	bar->filler_len = strlen(fill());
-	len = bar->filler_len * PROGRESS_BAR_WIDTH;
+	len = bar->filler_len * PROGRESSBAR_WIDTH;
 
 	bar->filler = (char *) malloc(len + 1);
 	if (!bar->filler) {
@@ -56,16 +56,16 @@ void progressbar_inc(struct progressbar *bar)
 
 	percentage = (double) bar->cur / bar->max;
 
-        if ((int) (PROGRESS_BAR_WIDTH * percentage) > cur_width) {
-                symbols_to_display = percentage * PROGRESS_BAR_WIDTH;
+        if ((int) (PROGRESSBAR_WIDTH * percentage) > cur_width) {
+                symbols_to_display = percentage * PROGRESSBAR_WIDTH;
                 
                 for (pos = cur_width; pos < symbols_to_display; ++pos)
                         memcpy(bar->filler + pos * bar->filler_len, bar->fill(), bar->filler_len);
 
-                printf("%s [%s%*s] %3d%%\r", bar->title, bar->filler, PROGRESS_BAR_WIDTH - symbols_to_display, "", (int) (percentage * 100));
+                printf("%s [%s%*s] %3d%%\r", bar->title, bar->filler, PROGRESSBAR_WIDTH - symbols_to_display, "", (int) (percentage * 100));
                 fflush(stdout);
                 
-                cur_width = PROGRESS_BAR_WIDTH * percentage;
+                cur_width = PROGRESSBAR_WIDTH * percentage;
 
                 if (bar->cur == bar->max)
                         cur_width = 0;

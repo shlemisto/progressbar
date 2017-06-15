@@ -15,8 +15,7 @@ struct progressbar {
 	int filler_len;
 	const char *(*fill)();
 	int sym_count;
-	bool randomize_output;
-#define PROGRESS_BAR_WIDTH 60
+#define PROGRESSBAR_WIDTH 60
 };
 
 struct progressbar *progressbar_new(char *title, int max, const char *(*fill)());
