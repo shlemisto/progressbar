@@ -1,8 +1,6 @@
 #ifndef __PROGRESSBAR_H
 #define __PROGRESSBAR_H
 
-#include <stdbool.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif
