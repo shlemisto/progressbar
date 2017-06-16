@@ -1,4 +1,4 @@
-LIBNAME = progressbar
+LIBNAME = libprogressbar
 SHARED = $(LIBNAME).a
 DYNAMIC = $(LIBNAME).so
 SRC = $(wildcard *.c)
@@ -7,7 +7,7 @@ CFLAGS += -std=c99 -Wimplicit-function-declaration -Wall -Wextra -pedantic
 
 .PHONY: all clean
 
-all: $(SHARED) $(DYNAMIC)
+all: clean $(SHARED) $(DYNAMIC)
 
 $(SHARED): $(OBJ)
 	$(AR) $(ARFLAGS) $@ $^
