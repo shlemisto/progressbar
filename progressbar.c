@@ -3,7 +3,7 @@
 #include <string.h>
 #include "progressbar.h"
 
-struct progressbar *progressbar_new(char *title, int max, const char *(*fill)())
+struct progressbar *progressbar_new(const char *title, int max, const char *(*fill)())
 {
 	struct progressbar *bar;
 	int len;

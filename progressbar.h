@@ -16,7 +16,7 @@ struct progressbar {
 #define PROGRESSBAR_WIDTH 60
 };
 
-struct progressbar *progressbar_new(char *title, int max, const char *(*fill)());
+struct progressbar *progressbar_new(const char *title, int max, const char *(*fill)());
 void progressbar_inc(struct progressbar *bar);
 void progressbar_finish(struct progressbar *bar);
 
