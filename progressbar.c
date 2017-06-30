@@ -20,6 +20,7 @@ struct progressbar *progressbar_new(const char *title, int max, const char *(*fi
 	}
 
 	strncpy(bar->title, title, len);
+	bar->title[len] = '\0';
 	
 	bar->filler_len = strlen(fill());
 	len = bar->filler_len * PROGRESSBAR_WIDTH;
